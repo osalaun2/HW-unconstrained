@@ -1,7 +1,7 @@
 
 
 
-[![Build Status](https://travis-ci.org/osalaun2/HW-unconstrained.svg?branch=master)](https://travis-ci.org/osalaun2/HW-unconstrained)
+[![Build Status](https://travis-ci.org/osalaun2/HW-unconstrained.svg?branch=master)](https://travis-ci.org/osalaun2/HW-unconstrained.svg?branch=master)
 
 
 ## Questions branch
