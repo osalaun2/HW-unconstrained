@@ -1,7 +1,7 @@
 
 
 
-[![Build Status](https://travis-ci.org/osalaun2/HW-unconstrained.svg?branch=master)](https://travis-ci.org/osalaun2/HW-unconstrained.svg?branch=master)
+[![Build Status](https://travis-ci.org/osalaun2/HW-unconstrained.svg?branch=master)](https://travis-ci.org/osalaun2/HW-unconstrained)
 
 
 ## Questions branch
@@ -25,7 +25,7 @@
 	1. Finally, go to [travis and click login with github](https://travis-ci.org).
 	1. on the left, click on your repo that you want to test
 	1. click on the status build image, and copy the Markdown code from the popup.
-	1. Paste that code right at the top of *this* file, instead of the code you see there now. 
+	1. Paste that code right at the top of *this* file, instead of the code you see there now.
 	1. Now, each time you push to github, or you submit a pull request, the tests will run.
 1. Notice the config file `.travis.yml` in this repo. Don't change it.
 
