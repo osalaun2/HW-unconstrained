@@ -40,7 +40,7 @@ module maxlike
 		beta = [ 1; 1.5; -0.5 ]
 		X = rand(1,3)
 		phi = cdf(Normal(),X*beta)
-		Dict("X" => X, "Y" => 2, "coefficients" => beta)
+		Dict("X" => X, "Y" => 2, "coefficient" => beta)
 		
 	end
 
@@ -52,7 +52,7 @@ module maxlike
 
     	L(beta)= cdf(d::D, x::Real) * (1 - cdf(d::D, x::Real))
     	
-    	l = sum(Y*log(phi(X*beta))+(1-Y)*log(1-phi(X*beta)))
+    	return l = sum(Y*log(phi(X*beta))+(1-Y)*log(1-phi(X*beta)))
 
 
 	end
@@ -123,7 +123,7 @@ end
 
 	function maximize_like(x0=[0.8,1.0,-0.1],meth=:nelder_mead)
 
-	optimize(l, [0.0, 0.0])
+		optimize(l, [0.0, 0.0])
 
 	end
 
@@ -131,10 +131,10 @@ end
 
 	# function that maximizes the log likelihood with the gradient
 	# with a call to `optimize` and returns the result
-	
+
 	function maximize_like_grad(x0=[0.8,1.0,-0.1],meth=:bfgs)
 
-	optimize(l, g!, [0.0, 0.0])
+		optimize(l, g!, [0.0, 0.0])
 
 	end
 
@@ -143,7 +143,7 @@ end
 
 	function maximize_like_grad_hess(x0=[0.8,1.0,-0.1],meth=:newton)
 
-	optimize(l, g!, h!, [0.0, 0.0])
+		optimize(l, g!, h!, [0.0, 0.0])
 
 	end
 
@@ -154,6 +154,10 @@ end
 	# second column "Estimates"
 	# third column "StandardErrors"
 	function maximize_like_grad_se(x0=[0.8,1.0,-0.1],meth=:bfgs)
+
+		res = optimize(loglik_for_optim, grad!, x0, method = meth) 
+		std_errors = standard_errors(res.minimum,d)
+
 	end
 
 
