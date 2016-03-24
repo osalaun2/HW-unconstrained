@@ -6,7 +6,7 @@
 
 # in case you didn't open julia from this directory, we need to move you here first:
 home = ENV["HOME"]
-cd("$home/Dropbox/teaching/ScPo/ScPo-CompEcon/HW-unconstrained")	# you need to change this path.
+cd("$home/osalaun2/HW-unconstrained")	# you need to change this path.
 
 
 # include your code and test it:
