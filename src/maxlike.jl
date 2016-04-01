@@ -6,9 +6,9 @@ module maxlike
 
 	"""
     `input(prompt::AbstractString="")`
-  
+
     Read a string from STDIN. The trailing newline is stripped.
-  
+
     The prompt string, if given, is printed to standard output without a
     trailing newline before reading input.
     """
@@ -31,7 +31,7 @@ module maxlike
 	# should/could return a dict with beta,numobs,X,y,norm
 	# true coeff vector, number of obs, data matrix X (Nxk), response vector y (binary), and a type of parametric distribution; i.e. the standard normal in our case.
 	function makeData(n=10000)
-	
+
 		n=10000
 		X = rand(1,3)
 		Y = rand(n,1)
@@ -41,17 +41,17 @@ module maxlike
 		X = rand(1,3)
 		phi = cdf(Normal(),X*beta)
 		Dict("X" => X, "Y" => 2, "coefficient" => beta)
-		
+
 	end
 
 ################### QUESTION 2 ############################
 
 	# log likelihood function at x
-	# function loglik(betas::Vector,d::Dict) 
+	# function loglik(betas::Vector,d::Dict)
 	function loglik(betas::Vector,d::Dict)
 
     	L(beta)= cdf(d::D, x::Real) * (1 - cdf(d::D, x::Real))
-    	
+
     	return l = sum(Y*log(phi(X*beta))+(1-Y)*log(1-phi(X*beta)))
 
 
@@ -68,12 +68,12 @@ function plotLike(beta)
 
 	l = Y*log(phi(X*beta))+(1-Y)*log(1-phi(X*beta))
 	plot(l, color="red", linewidth=2.0, linestyle="--")
-	
+
 end
 
 ################### QUESTION 4 ############################
 
-function maximize_like
+function maximize_like()
 
 	optimize(l, [0.0, 0.0])
 
@@ -155,7 +155,7 @@ end
 	# third column "StandardErrors"
 	function maximize_like_grad_se(x0=[0.8,1.0,-0.1],meth=:bfgs)
 
-		res = optimize(loglik_for_optim, grad!, x0, method = meth) 
+		res = optimize(loglik_for_optim, grad!, x0, method = meth)
 		std_errors = standard_errors(res.minimum,d)
 
 	end
@@ -204,8 +204,3 @@ end
 
 
 end
-
-
-
-
-
